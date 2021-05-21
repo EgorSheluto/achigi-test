@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateTaskDto {
+  description: String!
+  estimateDate: DateTime
+  name: String!
+  price: Float
+  urls: [String!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createTasks(payload: [CreateTaskDto!]!): Task!
+  deleteTasks(payload: [String!]!): Task!
+  updateTasks(payload: [UpdateTaskDto!]!): Task!
+}
+
+type Query {
+  tasks: [Task!]!
+}
+
+type Task {
+  description: String!
+  estimateDate: DateTime
+  id: String!
+  name: String!
+  price: Float
+  progress: Int
+  status: TaskStatus!
+  urls: [String!]!
+}
+
+enum TaskStatus {
+  failed
+  finished
+  initialized
+  processing
+}
+
+input UpdateTaskDto {
+  description: String
+  estimateDate: DateTime
+  id: String!
+  name: String
+  price: Float
+  urls: [String!]
+}
