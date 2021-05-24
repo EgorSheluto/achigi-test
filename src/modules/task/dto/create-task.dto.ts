@@ -1,4 +1,7 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { 
+  Field, 
+  InputType,
+} from '@nestjs/graphql';
 import {
   ArrayMinSize,
   ArrayNotEmpty,
@@ -6,10 +9,12 @@ import {
   IsDefined,
   IsNotEmpty,
   IsNumber,
+  IsOptional,
   IsString,
   Min,
   MinLength,
 } from 'class-validator';
+import { IsDateBiggerThanNow } from 'src/common/decorators';
 
 @InputType()
 export class CreateTaskDto {
@@ -28,12 +33,14 @@ export class CreateTaskDto {
   description: string;
 
   @Field({ nullable: true })
+  @IsOptional()
   @IsDate()
   @IsNotEmpty()
-  @MinLength(1)
+  @IsDateBiggerThanNow()
   estimateDate?: Date;
 
   @Field({ nullable: true })
+  @IsOptional()
   @IsNumber()
   @IsNotEmpty()
   @Min(0.1)
@@ -42,5 +49,6 @@ export class CreateTaskDto {
   @Field(() => [String])
   @ArrayNotEmpty()
   @ArrayMinSize(1)
+  @IsString({ each: true })
   urls: string[];
 }

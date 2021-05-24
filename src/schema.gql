@@ -16,9 +16,9 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Mutation {
-  createTasks(payload: [CreateTaskDto!]!): Task!
-  deleteTasks(payload: [String!]!): Task!
-  updateTasks(payload: [UpdateTaskDto!]!): Task!
+  createTasks(tasks: [CreateTaskDto!]!): [Task!]!
+  deleteTasks(ids: [String!]!): Boolean!
+  updateTasks(tasks: [UpdateTaskDto!]!): Boolean!
 }
 
 type Query {
