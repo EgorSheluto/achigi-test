@@ -5,4 +5,5 @@ COPY package.json package.json
 RUN npm install
 COPY . .
 LABEL maintainer="Achicgi app"
+EXPOSE 3000
 CMD npm run start:dev

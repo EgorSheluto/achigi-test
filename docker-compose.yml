@@ -9,16 +9,18 @@ services:
   ### SETUP POSTGRESQL CONTAINER
   #################################
   db:
-    image: postgres
+    image: postgres:11.5-alpine
     restart: always
     container_name: db
     environment:
       POSTGRES_PASSWORD: root
       POSTGRES_USER: root
-      POSTGRES_DB: achicgi
-    ports:
-      - "5432:5432"
+      POSTGRES_MULTIPLE_DATABASES: achicgi,achicgitest
+    # ports:
+    #   - "5432:5432"
     volumes:
+      # - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+      - ./pg-init-scripts:/docker-entrypoint-initdb.d
       - ./dbdata:/var/lib/postgresql/data
     networks: 
       - achicgi
@@ -26,14 +28,16 @@ services:
   ##############################
   ### SETUP BACKEND
   ##############################
-  # backend:
-  #   build:
-  #     context: .
-  #     dockerfile: dev.Dockerfile
-  #   container_name: backend
-  #   volumes: 
-  #     - ./src:/usr/src/app
-  #   networks: 
-  #     - achicgi
-  #   depends_on: 
-  #     - db
+  backend:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    container_name: backend
+    ports:
+      - "3000:3000"
+    volumes: 
+      - ./src:/usr/src/app
+    networks: 
+      - achicgi
+    depends_on: 
+      - db
