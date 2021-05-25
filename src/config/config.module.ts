@@ -1,7 +1,14 @@
 import { Module } from '@nestjs/common';
-import { ConfigService } from './config.service';
+import { ConfigModule } from '@nestjs/config';
+import { MainConfigService } from './config.service';
+import { PostgresqlConfigModule } from './database/postgresql';
 
 @Module({
-  providers: [ConfigService]
+  imports: [
+    ConfigModule.forRoot(),
+    PostgresqlConfigModule,
+  ],
+  providers: [MainConfigService],
+  exports: [MainConfigService],
 })
-export class ConfigModule {}
+export class MainConfigModule {}

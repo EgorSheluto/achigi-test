@@ -22,3 +22,18 @@ services:
       - ./dbdata:/var/lib/postgresql/data
     networks: 
       - achicgi
+
+  ##############################
+  ### SETUP BACKEND
+  ##############################
+  # backend:
+  #   build:
+  #     context: .
+  #     dockerfile: dev.Dockerfile
+  #   container_name: backend
+  #   volumes: 
+  #     - ./src:/usr/src/app
+  #   networks: 
+  #     - achicgi
+  #   depends_on: 
+  #     - db

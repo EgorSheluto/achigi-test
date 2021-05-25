@@ -4,6 +4,7 @@
 
 # Data folders
 /dbdata
+/dbdata_test
 
 # Logs
 logs

@@ -5,8 +5,8 @@ import {
   Inject, 
   Injectable,
 } from '@nestjs/common';
-import { FAILED_CREATE_TASK_NAME_EXISTS } from 'src/constants/errors';
-import { ExecutionContextHelper } from 'src/shared/exec-context/exec-context.helper';
+import { FAILED_CREATE_TASK_NAME_EXISTS } from '../../../constants/errors';
+import { ExecutionContextHelper } from '../../../shared/exec-context/exec-context.helper';
 import { CreateTaskDto } from '../dto';
 import { TaskService } from '../task.service';
 

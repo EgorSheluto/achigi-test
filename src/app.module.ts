@@ -4,21 +4,25 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { MainConfigModule } from './config';
+import { MainConfigService } from './config/config.service';
 import { TaskModule } from './modules/task/task.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
-      useFactory: () => ({
-        type: process.env.DB_TYPE,
-        host: process.env.DB_HOST,
-        port: Number(process.env.DB_PORT),
-        username: process.env.DB_USERNAME,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_DATABASE,
-        entities: [__dirname + process.env.DB_ENTITIES],
-        synchronize: false,
-      })
+      imports: [MainConfigModule],
+      useFactory: (configService: MainConfigService) => ({
+        type: 'postgres',
+        host: configService.host,
+        port: configService.port,
+        username: configService.username,
+        password: configService.password,
+        database: configService.database,
+        entities: [configService.entities],
+        synchronize: configService.synchronize,
+      }),
+      inject: [MainConfigService]
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),

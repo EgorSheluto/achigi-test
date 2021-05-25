@@ -14,7 +14,7 @@ import {
   Min,
   MinLength,
 } from 'class-validator';
-import { IsDateBiggerThanNow } from 'src/common/decorators';
+import { IsDateBiggerThanNow } from '../../../common/decorators';
 
 @InputType()
 export class CreateTaskDto {

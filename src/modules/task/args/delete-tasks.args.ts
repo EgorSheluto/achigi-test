@@ -6,7 +6,7 @@ import {
 	IsArray, 
 	IsUUID, 
 } from "class-validator";
-import { ArrayHasNotDuplicates } from "src/common/decorators/array-has-not-duplicates.decorator";
+import { ArrayHasNotDuplicates } from "../../../common/decorators/array-has-not-duplicates.decorator";
 
 @ArgsType()
 export class DeleteTasksArgs {

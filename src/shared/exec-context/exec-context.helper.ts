@@ -29,12 +29,11 @@ export class ExecutionContextHelper {
 
     if (!obj || 
         Object.keys(obj)?.length < 0 || 
-        obj?.constructor !== Object/* weird thing */
+        obj?.constructor !== Object
     ) {
       return null;
     }
 
-    // Is that good practice?
     return await Promise.resolve(obj);
   }
 
@@ -48,7 +47,6 @@ export class ExecutionContextHelper {
       return null;
     }
 
-    // Is that good practice?
     return await Promise.resolve(arr);
   }
 
@@ -62,7 +60,6 @@ export class ExecutionContextHelper {
       return null;
     }
 
-    // Is that good practice?
     return await Promise.resolve(scalar);
   }
 }

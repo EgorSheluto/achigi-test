@@ -35,6 +35,8 @@ $ npm install
 ## Running the app
 
 ```bash
+$ in console in the root directory run command docker-compose up
+
 # development
 $ npm run start
 
@@ -48,6 +50,8 @@ $ npm run start:prod
 ## Test
 
 ```bash
+$ in console in the root directory run command docker-compose up
+
 # unit tests
 $ npm run test
 

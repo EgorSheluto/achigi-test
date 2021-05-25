@@ -9,8 +9,8 @@ import {
   FAILED_UPDATE_TASK_NOTHING_TO_UPDATE, 
   FAILED_UPDATE_TASK_NOT_EXISTS,
   FAILED_UPDATE_TASK_PARAM_EXISTS,
-} from 'src/constants/errors';
-import { ExecutionContextHelper } from 'src/shared/exec-context/exec-context.helper';
+} from '../../../constants/errors';
+import { ExecutionContextHelper } from '../../../shared/exec-context/exec-context.helper';
 import { UpdateTaskDto } from '../dto';
 import { TaskService } from '../task.service';
 
