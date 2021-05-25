@@ -35,7 +35,7 @@ $ npm install
 ## Running the app
 
 ```bash
-$ in console in the root directory run command docker-compose up
+$ in cmd, bash: docker-compose up (in app root directory)
 
 # development
 $ npm run start
@@ -50,7 +50,7 @@ $ npm run start:prod
 ## Test
 
 ```bash
-$ in console in the root directory run command docker-compose up
+$ in cmd, bash: docker-compose -p backend_tests run -p 3000 --rm backend npm run test:e2e
 
 # unit tests
 $ npm run test
