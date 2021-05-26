@@ -56,7 +56,7 @@ $ npm run start:prod
 ## Test
 
 ```bash
-$ in cmd, bash: docker-compose -p backend_tests run -p 3000 --rm backend npm run test:e2e
+$ in cmd, bash: docker-compose run -p 3000 --rm backend npm run test:e2e
 
 # unit tests
 $ npm run test
