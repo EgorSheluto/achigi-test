@@ -32,6 +32,12 @@
 $ npm install
 ```
 
+## Setting up
+
+```bash
+$ before docker-compose up do the following command 'sed -i -e 's/\r$//' create-multiple-postgresql-databases.sh' for create-multiple-postgresql-databases.sh file in pg-init-scripts folder
+```
+
 ## Running the app
 
 ```bash
