@@ -52,6 +52,7 @@ export class TaskService {
   async create(dto: CreateTaskDto): Promise<Task> {
     this.logger.log('create has been started...');
 
+    dto.created_at = new Date();
     const createdTask = await this.taskRepository.save(dto);
     this.logger.log('task has been created');
 
@@ -73,6 +74,7 @@ export class TaskService {
   async update(dto: UpdateTaskDto): Promise<void> {
     this.logger.log('update has been started...');
 
+    dto.updated_at = new Date();
     const updatedTask = this.taskRepository.update(dto.id, dto);
     this.logger.log('task has been updated');
 

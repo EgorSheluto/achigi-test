@@ -1,7 +1,7 @@
 version: '3.7'
 
 networks:
-  achicgi-dev:
+  achicgi-prod:
     driver: bridge
 
 services:
@@ -21,7 +21,7 @@ services:
     volumes:
       - ./dbdata:/var/lib/postgresql/data
     networks: 
-      - achicgi-dev
+      - achicgi-prod
 
   ##############################
   ### SETUP BACKEND
@@ -29,7 +29,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: dev.Dockerfile
+      dockerfile: prod.Dockerfile
     container_name: backend
     environment: 
       DB_TYPE: 
@@ -46,6 +46,6 @@ services:
     volumes: 
       - ./src:/usr/src/app
     networks: 
-      - achicgi-dev
+      - achicgi-prod
     depends_on: 
       - db

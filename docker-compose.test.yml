@@ -1,7 +1,7 @@
 version: '3.7'
 
 networks:
-  achicgi-dev:
+  achicgi-test:
     driver: bridge
 
 services:
@@ -21,7 +21,7 @@ services:
     volumes:
       - ./dbdata:/var/lib/postgresql/data
     networks: 
-      - achicgi-dev
+      - achicgi-test
 
   ##############################
   ### SETUP BACKEND
@@ -46,6 +46,6 @@ services:
     volumes: 
       - ./src:/usr/src/app
     networks: 
-      - achicgi-dev
+      - achicgi-test
     depends_on: 
       - db

@@ -9,7 +9,9 @@ RUN npm install
 
 COPY . .
 
+RUN npm run build
+
 LABEL maintainer="Achicgi app"
 
 EXPOSE 3000
-CMD npm run start:dev
+CMD npm run start:prod

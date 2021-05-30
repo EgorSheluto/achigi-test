@@ -14,7 +14,9 @@ import {
   Min,
   MinLength,
 } from 'class-validator';
+import { TaskNameNotExists } from '../../../common/decorators/task-name-not-exists.decorator';
 import { IsDateBiggerThanNow } from '../../../common/decorators';
+import { ArrayHasNotDuplicates } from '../../../common/decorators/array-has-not-duplicates.decorator';
 
 @InputType()
 export class CreateTaskDto {
@@ -23,6 +25,7 @@ export class CreateTaskDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(1)
+  @TaskNameNotExists()
   name: string;
 
   @Field()
@@ -50,5 +53,8 @@ export class CreateTaskDto {
   @ArrayNotEmpty()
   @ArrayMinSize(1)
   @IsString({ each: true })
+  @ArrayHasNotDuplicates()
   urls: string[];
+
+  created_at: Date;
 }
