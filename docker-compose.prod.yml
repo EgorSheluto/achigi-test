@@ -1,7 +1,7 @@
 version: '3.7'
 
 networks:
-  achicgi-dev:
+  achicgi-prod:
     driver: bridge
 
 services:
@@ -15,13 +15,13 @@ services:
     environment:
       POSTGRES_PASSWORD: root
       POSTGRES_USER: root
-      POSTGRES_DB: achicgi-dev
+      POSTGRES_DB: achicgi-prod
     # ports:
     #   - "5432:5432"
     volumes:
       - ./dbdata:/var/lib/postgresql/data
     networks: 
-      - achicgi-dev
+      - achicgi-prod
 
   ##############################
   ### SETUP BACKEND
@@ -29,7 +29,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: dev.Dockerfile
+      dockerfile: prod.Dockerfile
     container_name: backend
     environment: 
       DB_TYPE: postgres
@@ -46,6 +46,6 @@ services:
     volumes: 
       - ./src:/usr/src/app
     networks: 
-      - achicgi-dev
+      - achicgi-prod
     depends_on: 
       - db

@@ -10,6 +10,7 @@ import validationSchema from './validation.schema';
   imports: [
 		ConfigModule.forRoot({
       envFilePath: process.env.NODE_ENV.trim() === 'development' && '.development.env' ||
+        process.env.NODE_ENV.trim() === 'production' && '.production.env' ||
 				process.env.NODE_ENV.trim() === 'test' && '.test.env',
       load: [configuration],
       validationSchema: validationSchema(),

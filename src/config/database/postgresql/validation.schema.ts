@@ -9,4 +9,6 @@ export default () => Joi.object({
 	DB_DATABASE: Joi.string().default('achicgi'),
 	DB_ENTITIES: Joi.string().default('dist/**/*.entity{.ts,.js}'),
 	DB_SYNCHRONIZE: Joi.boolean().default(false),
+	DB_LOGGING_BOOLEAN: Joi.boolean().default(null),
+	DB_LOGGING_ARRAY: Joi.array().default(null),
 });

@@ -9,4 +9,6 @@ export default registerAs('postgresql', () => ({
 	database: process.env.DB_DATABASE,
 	entities: process.env.DB_ENTITIES,
 	synchronize: process.env.DB_SYNCHRONIZE,
+	loggingBoolean: process.env.DB_LOGGING_BOOLEAN,
+	loggingArray: process.env.DB_LOGGING_ARRAY,
 }));

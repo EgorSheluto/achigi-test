@@ -32,7 +32,6 @@ export class TaskResolver {
   }
 
   @Mutation(() => [Task])
-  @UseGuards(CreateTaskValidationGuard)
   async createTasks(@Args() args: CreateTasksArgs): Promise<Task[]> {
     this.logger.log('createTasks has been started...');
 
@@ -44,7 +43,6 @@ export class TaskResolver {
   }
 
   @Mutation(() => Boolean)
-  @UseGuards(UpdateTaskValidationGuard)
   async updateTasks(@Args() args: UpdateTasksArgs): Promise<boolean> {
     this.logger.log('updateTasks has been started...');
 

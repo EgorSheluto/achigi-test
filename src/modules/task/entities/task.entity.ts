@@ -35,7 +35,7 @@ export class Task {
   @Column({
     type: 'enum',
     enum: TaskStatus,
-    nullable: true,
+    default: TaskStatus.initialized
   })
   status: TaskStatus;
 
@@ -48,4 +48,12 @@ export class Task {
     nullable: true,
   })
   progress: number;
+
+  @Field()
+  @Column()
+  created_at: Date;
+
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  updated_at: Date;
 }

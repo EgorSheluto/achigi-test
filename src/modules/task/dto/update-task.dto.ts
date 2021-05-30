@@ -11,6 +11,7 @@ import {
   Min,
   MinLength,
 } from 'class-validator';
+import { ArrayHasNotDuplicates } from '../../../common/decorators/array-has-not-duplicates.decorator';
 
 @InputType()
 export class UpdateTaskDto {
@@ -53,5 +54,8 @@ export class UpdateTaskDto {
   @IsOptional()
   @ArrayNotEmpty()
   @ArrayMinSize(1)
+  @ArrayHasNotDuplicates()
   urls?: string[];
+
+  updated_at: Date;
 }

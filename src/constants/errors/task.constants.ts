@@ -13,4 +13,6 @@ export const FAILED_UPDATE_TASK_NOT_EXISTS: string = FAILED_UPDATE_NOT_EXISTS(ta
 export const FAILED_UPDATE_TASK_PARAM_EXISTS: string = FAILED_UPDATE_PARAM_EXISTS(taskObjName, taskName);
 export const FAILED_UPDATE_TASK_NOTHING_TO_UPDATE: string = FAILED_UPDATE_NOTHING_TO_UPDATE();
 
+export const FAILED_CREATE_OR_UPDATE_TASK_NAME_DUPLICATES: string = `Create or update has been failed. There haven't be tasks names duplicates.`;
+
 export const FAILED_DELETE_TASK_NOT_EXISTS: string = FAILED_DELETE_NOT_EXISTS(taskObjName);

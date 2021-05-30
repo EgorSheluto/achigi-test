@@ -38,4 +38,13 @@ export class MainConfigService {
 	get synchronize(): boolean {
 		return this.configService.get<string>('postgresql.synchronize') === 'true';
 	}
+
+	get loggingBoolean(): boolean {
+		console.log(this.configService.get<string>('postgresql.logging'));
+		return this.configService.get<string>('postgresql.logging') === 'true';
+	}
+
+	get loggingArray(): string[] {
+		return this.configService.get<string[]>('postgresql.logging');
+	}
 }
