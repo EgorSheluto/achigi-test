@@ -13,9 +13,9 @@ services:
     restart: always
     container_name: db
     environment:
-      POSTGRES_PASSWORD: root
-      POSTGRES_USER: root
-      POSTGRES_DB: achicgi-prod
+      POSTGRES_PASSWORD: 
+      POSTGRES_USER: 
+      POSTGRES_DB: 
     # ports:
     #   - "5432:5432"
     volumes:
@@ -32,12 +32,12 @@ services:
       dockerfile: prod.Dockerfile
     container_name: backend
     environment: 
-      DB_TYPE: postgres
-      DB_HOST: db
-      DB_PORT: '5432'
-      DB_USERNAME: root
-      DB_PASSWORD: root
-      DB_DATABASE: achicgi
+      DB_TYPE: 
+      DB_HOST: 
+      DB_PORT: 
+      DB_USERNAME: 
+      DB_PASSWORD: 
+      DB_DATABASE: 
       DB_ENTITIES: dist/**/*.entity{.ts,.js}
       DB_SYNCHRONIZE: 'true'
       DB_LOGGING_BOOLEAN: 'true'
