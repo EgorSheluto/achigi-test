@@ -32,9 +32,11 @@ services:
       dockerfile: prod.Dockerfile
     container_name: backend
     environment: 
-      DB_TYPE: 
-      DB_HOST: 
-      DB_PORT: 
+      PM2_PUBLIC_KEY: # Enter a public key from PM2
+      PM2_SECRET_KEY: # Enter a secret key from PM2
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: 5432
       DB_USERNAME: 
       DB_PASSWORD: 
       DB_DATABASE: 

@@ -41,7 +41,8 @@ $ before docker-compose up do the following command 'sed -i -e 's/\r$//' create-
 ## Running the app
 
 ```bash
-$ in cmd, bash: docker-compose up (in app root directory)
+$ 1. Fill docker-compose file envs
+$ 2. In cmd, bash: docker-compose up (in app root directory)
 
 # development
 $ npm run start
@@ -50,6 +51,9 @@ $ npm run start
 $ npm run start:dev
 
 # production mode
+$ Register in PM2 or using existing account get public and 
+$ secret keys and put it in prod docker-compose file envs
+
 $ npm run start:prod
 ```
 
