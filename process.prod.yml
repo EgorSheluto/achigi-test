@@ -1,3 +1,0 @@
-apps:
-  - script: 'npm run start:prod'
-    name: 'achicgi-app'

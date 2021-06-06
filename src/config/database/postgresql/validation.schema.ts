@@ -1,14 +1,14 @@
 import * as Joi from 'joi';
 
 export default () => Joi.object({
-  DB_TYPE: Joi.string().default('postgres'),
-	DB_HOST: Joi.string().default('localhost'),
-	DB_PORT: Joi.number().default(5432),
-	DB_USERNAME: Joi.string().default('root'),
-	DB_PASSWORD: Joi.string().default('root'),
-	DB_DATABASE: Joi.string().default('achicgi'),
-	DB_ENTITIES: Joi.string().default('dist/**/*.entity{.ts,.js}'),
-	DB_SYNCHRONIZE: Joi.boolean().default(false),
-	DB_LOGGING_BOOLEAN: Joi.boolean().default(null),
-	DB_LOGGING_ARRAY: Joi.array().default(null),
+  DB_TYPE: Joi.string(),
+	DB_HOST: Joi.string(),
+	DB_PORT: Joi.number(),
+	DB_USERNAME: Joi.string(),
+	DB_PASSWORD: Joi.string(),
+	DB_DATABASE: Joi.string(),
+	DB_ENTITIES: Joi.string(),
+	DB_SYNCHRONIZE: Joi.boolean(),
+	DB_LOGGING_BOOLEAN: Joi.boolean(),
+	DB_LOGGING_ARRAY: Joi.array(),
 });

@@ -32,27 +32,16 @@
 $ npm install
 ```
 
-## Setting up
-
-```bash
-$ before docker-compose up do the following command 'sed -i -e 's/\r$//' create-multiple-postgresql-databases.sh' for create-multiple-postgresql-databases.sh file in pg-init-scripts folder
-```
-
 ## Running the app
 
 ```bash
-$ 1. Fill docker-compose file envs
-$ 2. In cmd, bash: docker-compose up (in app root directory)
-
 # development
-$ npm run start
+$ 1. Fill out env file
+$ 2. docker-compose up (in app root directory)
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ Register in PM2 or using existing account get public and 
-$ secret keys and put it in prod docker-compose file envs
+# production
+$ 1. Fill out env file
+$ 2. Use docker-compose -f docker-compose.prod.yml or prod.Dockerfile for production (depend on how you will deploy app)
 
 $ npm run start:prod
 ```
@@ -60,16 +49,7 @@ $ npm run start:prod
 ## Test
 
 ```bash
-$ in cmd, bash: docker-compose run -p 3000 --rm backend npm run test:e2e
-
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ 1. docker-compose -f docker-compose.test.yml run -p 3000 --rm backend npm run test:e2e
 ```
 
 ## Support

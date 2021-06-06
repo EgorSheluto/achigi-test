@@ -8,8 +8,6 @@ import { MainConfigModule } from './config';
 import { MainConfigService } from './config/config.service';
 import { TaskModule } from './modules/task/task.module';
 import * as depthLimit from 'graphql-depth-limit';
-// import { MorganModule, MorganInterceptor } from 'nest-morgan';
-// import { APP_INTERCEPTOR } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -22,9 +20,9 @@ import * as depthLimit from 'graphql-depth-limit';
         username: configService.username,
         password: configService.password,
         database: configService.database,
-        entities: [configService.entities],
-        synchronize: configService.synchronize,
-        logging: true, // configService.loggingBoolean/* || configService.loggingArray*/,
+        entities: ['dist/**/*.entity{.ts,.js}'],
+        synchronize: true,
+        logging: true,
       }),
       inject: [MainConfigService]
     }),
@@ -67,15 +65,10 @@ import * as depthLimit from 'graphql-depth-limit';
       }
     }),
     TaskModule,
-    // MorganModule,
   ],
   controllers: [AppController],
   providers: [
     AppService,
-    // {
-    //   provide: APP_INTERCEPTOR,
-    //   useClass: MorganInterceptor('tiny'),
-    // }
   ],
 })
 export class AppModule {}
